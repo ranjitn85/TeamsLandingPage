@@ -119,10 +119,12 @@
       var clientID;
       var clientSecret;
       var nacURL;
+      var emailID;
       fetchConfig().then(config => {
         clientID = config.clientID;
         clientSecret = config.clientSecret;
         nacURL = config.NACURL;
+        emailID = config.emailID;
         $.ajax({
           url: 'https://us.nintex.io/authentication/v1/token',
           crossDomain: true,
@@ -143,7 +145,7 @@
               'Content-Type': 'application/json'
             },
             data: {
-              'assignee': "ranjit.ramachandran@nintex.com",
+              'assignee': emailID,
               'status': "active",
             },
             method: 'GET',
@@ -189,10 +191,12 @@
       var clientID;
       var clientSecret;
       var nacURL;
+      var emailID;
         fetchConfig().then(config => {
         clientID = config.clientID;
         clientSecret = config.clientSecret;
         nacURL = config.NACURL;
+        emailID = config.emailID;
           var URL = nacURL+"/workflows/v2/tasks/"+obj.id.split('_')[0]+"/assignments/"+obj.id.split('_')[0];
           var action = obj.id.split('_')[1];
           var accesstoken;
@@ -251,7 +255,7 @@
      <div id="main" class="container">
       <div class="row">
         <div class="col-12 col-md-6">
-            <img src="https://www.nintex.com/wp-content/uploads/2018/07/nintex-logo-dark.png" alt="Company Logo" style="width: 20%; height: 20%;">
+            <img src="https://www.nintex.com/wp-content/uploads/2018/07/nintex-logo-dark.png" alt="Company Logo" style="width: 20%;">
         </div>      
       </div>
         <table style='width:40%'>
